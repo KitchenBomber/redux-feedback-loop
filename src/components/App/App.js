@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
+import {createStore} from 'redux';
+import {Provider} from 'react-redux';
+
+
 
 class App extends Component {
   render() {
