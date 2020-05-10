@@ -11,11 +11,9 @@ export class Comments extends Component {
         return (
             <div>
                 <h3>Any comments you want to leave?</h3>
-                <form>
-                    <label for="comments">Tell us what you think:</label>
-                    <input type="text" name="comments"></input>
-                    <button onClick={this.goReview}>Review Answers</button>
-                </form>
+                <input id="comments" type="text" placeholder="comments"></input>
+                <button onClick={this.goReview}>Review Answers</button>
+                
             </div>
         )
     }

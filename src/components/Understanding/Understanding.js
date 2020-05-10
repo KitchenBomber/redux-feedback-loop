@@ -2,8 +2,16 @@ import React, { Component } from 'react'
 
 export class Understanding extends Component {
 
-    goSupported = () => {
-        console.log("Leaving Understanding");
+
+    handleChange = (event, property) => {
+        console.log('in handleChange');
+        this.setState({
+            understanding: event.target.value
+        })
+    }
+    goSupported = (event, property) => {
+        console.log("Leaving Understanding", this.state);
+        this.props.dispatch({ type: "understanding", payload: this.state.understanding });
         this.props.history.push('/supported');
     }
 
@@ -12,12 +20,13 @@ export class Understanding extends Component {
             <div>
                 <h3>How Well are you understanding the content?</h3>
                 <div>
-                    <select>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
+                    <select id="understanding" onChange={this.handleChange}>
+                        <option>-</option>
+                        <option onChange={this.handleChange} value="1">1: Not At All</option>
+                        <option onChange={this.handleChange} value="2">2: A Bit</option>
+                        <option onChange={this.handleChange} value="3">3: Okay</option>
+                        <option onChange={this.handleChange} value="4">4: A Lot</option>
+                        <option onChange={this.handleChange} value="5">5: Completely</option>
                     </select>
                     <button onClick={this.goSupported}>Next Question</button>
                 </div>

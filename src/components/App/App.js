@@ -9,7 +9,7 @@ import Comments from '../Comments/Comments';
 import Review from '../Review/Review';
 import Submit from '../Submit/Submit';
 import { connect } from 'react-redux';
-import { HashRouter, Route, Link } from 'react-router-dom';
+import { HashRouter, Route, } from 'react-router-dom';
 
 class App extends Component {
 
@@ -18,8 +18,7 @@ class App extends Component {
 
   }
   clickHandler = () => {
-    console.log('in clickHandler');
-    this.props.dispatch({ type: 'click' });
+    console.log('in clickHandler', this.props.reduxState);
   }//this is the test button, making sure dispatch was working
 
   render() {
@@ -27,19 +26,27 @@ class App extends Component {
       <div className="App">
       <HashRouter>
         <header className="App-header">
-            <Route path="/" component={Home} />
-            
+            <Route exact path="/" component={Home} />
+            <button onClick={this.clickHandler}>Check Redux</button>
           
             
         </header>
         <br/>
-          <Route path="/feeling" component={Feeling} />
-          <Route path="/understanding" component={Understanding} />
-          <Route path="/supported" component={Supported} />
-          <Route path="/comments" component={Comments} />
+          <Route path="/feeling"
+        render={(props)=><Feeling {...props} dispatch={this.props.dispatch} /> }
+          />
+          <Route path="/understanding" 
+          render={(props) => <Understanding {...props} dispatch={this.props.dispatch} />}
+          />
+          <Route path="/supported" 
+          render={(props) => <Supported {...props} dispatch={this.props.dispatch} />}
+          />
+          <Route path="/comments" 
+          render={(props) => <Comments {...props} dispatch={this.props.dispatch} />}
+          />
           <Route path="/review" component={Review} />
-          <Route path="/submit" component={Submit} />
-          <button onClick={this.clickHandler}><Link to="/feeling">Start Survey</Link></button>
+          <Route path="/submit" render={(props) => <Submit {...props} dispatch={this.props.dispatch} />}
+          />
         </HashRouter>
       </div>
     );

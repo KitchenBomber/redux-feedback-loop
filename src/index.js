@@ -6,11 +6,25 @@ import registerServiceWorker from './registerServiceWorker';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
-const firstReducerInitialState = 0;
+const firstReducerInitialState = {
+    feeling: "",
+    understanding: "",
+    support: "",
+    comments: "",
+    flagged: false,
+};
 
 const firstReducer = (state = firstReducerInitialState, action) => {
     console.log('in firstReducer', state, action);
-    return {};
+    if(action.type === "feeling"){
+        // feeling = action.payload
+        return { ...state, feeling: action.payload };
+    }else if(action.type === "understanding"){
+        return {...state, understanding: action.payload}
+    }else if(action.type === "supported"){
+        return {...state, support: action.payload}
+    }
+    return state
 }
 
 const storeInstance = createStore(firstReducer);
