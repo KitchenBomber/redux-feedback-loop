@@ -6,14 +6,15 @@ export class Understanding extends Component {
         this.setState({
             understanding: "-"
         })
-    }
+    }//prevents non-answers
 
     handleChange = (event, property) => {
         console.log('in handleChange');
         this.setState({
             understanding: event.target.value
         })
-    }
+    }//updates the current state
+
     goSupported = (event, property) => {
         console.log("Leaving Understanding", this.state);
         if (this.state.understanding === "-") {
@@ -22,7 +23,8 @@ export class Understanding extends Component {
         this.props.dispatch({ type: "understanding", payload: this.state.understanding });
         this.props.history.push('/supported');
     }
-    }
+    }//checks for non-answers then locks in the component state as the redux state
+
     render() {
         return (
             <div>

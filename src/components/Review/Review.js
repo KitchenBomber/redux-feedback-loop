@@ -6,7 +6,7 @@ export class Review extends Component {
         console.log("Leaving Review");
         this.props.dispatch({ type: "submit" })
         this.props.history.push('/submit');
-    }
+    }//this fires the POST from index.js
 
     render() {
         return (
@@ -20,6 +20,6 @@ export class Review extends Component {
             </div>
         )
     }
-}
+}//displays the current reduxState on the Dom
 
 export default Review

@@ -40,7 +40,7 @@ const firstReducer = (state = firstReducerInitialState, action) => {
         }
     }
     return state
-}
+}//this is the source of truth
 
 const storeInstance = createStore(firstReducer);
 

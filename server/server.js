@@ -11,6 +11,7 @@ app.use(express.static('build'));
 /** ---------- EXPRESS ROUTES ---------- **/
 const surveyRouter = require('./routes/survey.router.js');
 app.use('/survey', surveyRouter );
+/** connects index.js to the survey.router.js **/
 
 /** ---------- START SERVER ---------- **/
 app.listen(PORT, () => {

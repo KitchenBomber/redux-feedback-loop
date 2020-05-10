@@ -6,21 +6,20 @@ export class Comments extends Component {
         this.setState({
             comments: ""
         })
-    }
+    }//will at least send empty string
 
     handleChange = (event, property) => {
         console.log('in handleChange');
         this.setState({
             comments: event.target.value
         })
-    }
+    }//sets component state
 
     goReview = () => {
         console.log("Leaving Comments", this.state);
-        // if (this.state.understanding === !""){
         this.props.dispatch({ type: "comments", payload: this.state.comments });
         this.props.history.push('/review');
-    }
+    }//sends the comment up to index.js
 
     render() {
         return (

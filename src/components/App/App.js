@@ -21,38 +21,40 @@ class App extends Component {
   }
   //this handler is for the check reduxState button used in testing
 
-render() {
-  return (
-    <div className="App">
-      <HashRouter>
-        <header className="App-header">
-          <h1 className="App-title">Feedback!</h1>
-          <Route exact path="/" component={Home} />
-          <button onClick={this.clickHandler}>Check Redux</button>
+  render() {
+    return (
+      <div className="App">
+        <HashRouter>
+          <header className="App-header">
+            <h1 className="App-title">Feedback!</h1>
+            <Route exact path="/" component={Home} />
+
+            {/* This button was for testing only <button onClick={this.clickHandler}>Check Redux</button> */}
 
 
-        </header>
-        <br />
-        <Route path="/feeling"
-          render={(props) => <Feeling {...props} dispatch={this.props.dispatch} />}
-        />
-        <Route path="/understanding"
-          render={(props) => <Understanding {...props} dispatch={this.props.dispatch} />}
-        />
-        <Route path="/supported"
-          render={(props) => <Supported {...props} dispatch={this.props.dispatch} />}
-        />
-        <Route path="/comments"
-          render={(props) => <Comments {...props} dispatch={this.props.dispatch} />}
-        />
-        <Route path="/review" render={(props) => <Review {...props} dispatch={this.props.dispatch} reduxState={this.props.reduxState} />}
-        />
-        <Route path="/submit" render={(props) => <Submit {...props} dispatch={this.props.dispatch} />}
-        />
-      </HashRouter>
-    </div>
-  );
-}
+          </header>
+          <br />
+          {/* These are the routes connecting my functional components */}
+          <Route path="/feeling"
+            render={(props) => <Feeling {...props} dispatch={this.props.dispatch} />}
+          />
+          <Route path="/understanding"
+            render={(props) => <Understanding {...props} dispatch={this.props.dispatch} />}
+          />
+          <Route path="/supported"
+            render={(props) => <Supported {...props} dispatch={this.props.dispatch} />}
+          />
+          <Route path="/comments"
+            render={(props) => <Comments {...props} dispatch={this.props.dispatch} />}
+          />
+          <Route path="/review" render={(props) => <Review {...props} dispatch={this.props.dispatch} reduxState={this.props.reduxState} />}
+          />
+          <Route path="/submit" render={(props) => <Submit {...props} dispatch={this.props.dispatch} />}
+          />
+        </HashRouter>
+      </div>
+    );
+  }
 }
 
 const putReduxStateOnProps = (reduxState) => ({ reduxState });

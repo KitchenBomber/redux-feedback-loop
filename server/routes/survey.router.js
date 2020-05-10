@@ -18,5 +18,6 @@ router.post('/', (req, res) => {
         res.sendStatus(500);
     })
 });
+//sends the survey to the database
 
 module.exports = router;

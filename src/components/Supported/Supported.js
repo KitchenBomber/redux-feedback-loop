@@ -6,14 +6,14 @@ export class Supported extends Component {
         this.setState({
             support: "-"
         })
-    }
+    }//failsafe
 
     handleChange = (event, property) => {
         console.log('in handleChange');
         this.setState({
             support: event.target.value
         })
-    }
+    }//sets component state
 
     goComments = (event, property) => {
         console.log("Leaving Supported", this.state);
@@ -23,7 +23,8 @@ export class Supported extends Component {
         this.props.dispatch({ type: "supported", payload: this.state.support });
         this.props.history.push('/comments');
     }
-    }
+    }//sends component state to index.js for update
+
     render() {
         return (
             <div>
