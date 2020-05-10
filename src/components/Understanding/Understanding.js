@@ -2,6 +2,11 @@ import React, { Component } from 'react'
 
 export class Understanding extends Component {
 
+    componentDidMount() {
+        this.setState({
+            understanding: "-"
+        })
+    }
 
     handleChange = (event, property) => {
         console.log('in handleChange');
@@ -11,10 +16,13 @@ export class Understanding extends Component {
     }
     goSupported = (event, property) => {
         console.log("Leaving Understanding", this.state);
+        if (this.state.understanding === "-") {
+            alert("you must select a response")
+        } else {
         this.props.dispatch({ type: "understanding", payload: this.state.understanding });
         this.props.history.push('/supported');
     }
-
+    }
     render() {
         return (
             <div>

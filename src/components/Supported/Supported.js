@@ -2,6 +2,12 @@ import React, { Component } from 'react'
 
 export class Supported extends Component {
 
+    componentDidMount() {
+        this.setState({
+            support: "-"
+        })
+    }
+
     handleChange = (event, property) => {
         console.log('in handleChange');
         this.setState({
@@ -11,10 +17,13 @@ export class Supported extends Component {
 
     goComments = (event, property) => {
         console.log("Leaving Supported", this.state);
+        if (this.state.support === "-") {
+            alert("you must select a response")
+        } else {
         this.props.dispatch({ type: "supported", payload: this.state.support });
         this.props.history.push('/comments');
     }
-
+    }
     render() {
         return (
             <div>

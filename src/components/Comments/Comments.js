@@ -1,6 +1,12 @@
 import React, { Component } from 'react'
 
 export class Comments extends Component {
+    
+    componentDidMount() {
+        this.setState({
+            comments: ""
+        })
+    }
 
     handleChange = (event, property) => {
         console.log('in handleChange');
@@ -11,7 +17,8 @@ export class Comments extends Component {
 
     goReview = () => {
         console.log("Leaving Comments", this.state);
-        this.props.dispatch({ type: "comments", payload: this.state.comments });
+        if (this.state.understanding === !""){
+        this.props.dispatch({ type: "comments", payload: this.state.comments })};
         this.props.history.push('/review');
     }
 
