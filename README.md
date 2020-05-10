@@ -1,6 +1,4 @@
-React Feedback Form
-
-## Description
+## React Feedback Form
 
 This form allows users to leave anonymous feedback in a database.
 ![feedback1.png](/public/images/feedback1.png)
