@@ -17,8 +17,8 @@ export class Comments extends Component {
 
     goReview = () => {
         console.log("Leaving Comments", this.state);
-        if (this.state.understanding === !""){
-        this.props.dispatch({ type: "comments", payload: this.state.comments })};
+        // if (this.state.understanding === !""){
+        this.props.dispatch({ type: "comments", payload: this.state.comments });
         this.props.history.push('/review');
     }
 

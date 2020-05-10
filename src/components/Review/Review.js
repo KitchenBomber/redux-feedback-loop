@@ -4,6 +4,7 @@ export class Review extends Component {
 
     goSubmit = () => {
         console.log("Leaving Review");
+        this.props.dispatch({ type: "submit" })
         this.props.history.push('/submit');
     }
 
