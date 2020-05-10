@@ -8,10 +8,10 @@ import { Provider } from 'react-redux';
 import Axios from 'axios';
 
 const firstReducerInitialState = {
-    // feeling: "",
-    // understanding: "",
-    // support: "",
-    // comments: "",
+    feeling: "",
+    understanding: "",
+    support: "",
+    comments: "",
 };
 
 const firstReducer = (state = firstReducerInitialState, action) => {
@@ -31,6 +31,13 @@ const firstReducer = (state = firstReducerInitialState, action) => {
             console.log(err);
             alert('failed to submit')
         })
+    }else if(action.type === "reset"){
+        return {
+            state, feeling: "",
+            understanding: "",
+            support: "",
+            comments: "",
+        }
     }
     return state
 }
