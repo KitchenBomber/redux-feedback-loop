@@ -23,6 +23,8 @@ const firstReducer = (state = firstReducerInitialState, action) => {
         return {...state, understanding: action.payload}
     }else if(action.type === "supported"){
         return {...state, support: action.payload}
+    }else if(action.type === "comments"){
+        return {...state, comments: action.payload}
     }
     return state
 }

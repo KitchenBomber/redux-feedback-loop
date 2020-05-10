@@ -2,8 +2,16 @@ import React, { Component } from 'react'
 
 export class Comments extends Component {
 
+    handleChange = (event, property) => {
+        console.log('in handleChange');
+        this.setState({
+            comments: event.target.value
+        })
+    }
+
     goReview = () => {
-        console.log("Leaving Comments");
+        console.log("Leaving Comments", this.state);
+        this.props.dispatch({ type: "comments", payload: this.state.comments });
         this.props.history.push('/review');
     }
 
@@ -11,7 +19,9 @@ export class Comments extends Component {
         return (
             <div>
                 <h3>Any comments you want to leave?</h3>
-                <input id="comments" type="text" placeholder="comments"></input>
+                <input id="comments" 
+                onChange={this.handleChange} 
+                type="text" placeholder="Tell us your hopes and dreams" size="50"></input>
                 <button onClick={this.goReview}>Review Answers</button>
                 
             </div>

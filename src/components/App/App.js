@@ -44,7 +44,8 @@ class App extends Component {
           <Route path="/comments" 
           render={(props) => <Comments {...props} dispatch={this.props.dispatch} />}
           />
-          <Route path="/review" component={Review} />
+          <Route path="/review" render={(props) => <Review {...props} dispatch={this.props.dispatch} reduxState={this.props.reduxState}/>}
+          />
           <Route path="/submit" render={(props) => <Submit {...props} dispatch={this.props.dispatch} />}
           />
         </HashRouter>
