@@ -2,6 +2,12 @@ import React, { Component } from 'react'
 
 export class Feeling extends Component {
 
+componentDidMount(){
+    this.setState({
+        feeling: "-"
+    })
+}
+
     handleChange = (event, property)=>{
     console.log('in handleChange');
     this.setState({
@@ -11,8 +17,17 @@ export class Feeling extends Component {
 
     goUnderstanding = (event, property) => {
         console.log("Leaving Feelings", this.state);
-       this.props.dispatch({type: "feeling", payload: this.state.feeling});
-        this.props.history.push('/understanding');
+        if(this.state.feeling === "-"){
+            alert("you must select a response")
+    }else{
+       this.props.dispatch({type: "feeling", payload: this.state.feeling})
+            this.props.history.push('/understanding');
+    } 
+    //     if(this.state.feeling === null){
+    //     alert("you must select a response")
+    // }
+       
+        
     }
 
     render() {
